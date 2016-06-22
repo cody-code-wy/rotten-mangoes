@@ -1,0 +1,11 @@
+<h1><%= @movie.title %></h1>
+<%= image_tag(@movie.poster_image_url) %>
+<h6>Directed by: <%= @movie.director %></h6>
+<small>Runtime <%= @movie.runtime_in_minutes %> minutes</small>
+<div>
+  <% @movie.description.split("\n").each do |paragraph| %>
+    <p>
+      <%= paragraph.to_s %>
+    </p>
+  <% end %>
+</div>
