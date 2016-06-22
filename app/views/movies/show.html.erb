@@ -1,3 +1,6 @@
+<ul>
+  <li><%= link_to 'Delete', movie_path(@movie), data:{confirm: 'Are you sure?'}, method: :delete %></li>
+</ul>
 <h1><%= @movie.title %></h1>
 <%= image_tag(@movie.poster_image_url) %>
 <h6>Directed by: <%= @movie.director %></h6>
