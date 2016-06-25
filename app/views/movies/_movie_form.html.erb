@@ -1,29 +1,44 @@
+<% @movie.validate %>
 <%= form_for @movie do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.label :director %>
-    <%= f.text_field :director %>
-  </div>
-  <div>
-    <%= f.label :runtime_in_minutes %>
-    <%= f.number_field :runtime_in_minutes %>
-  </div>
-  <div>
-    <%= f.label :poster_image_url %>
-    <%= f.text_field :poster_image_url %>
-  </div>
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-  <div>
-    <%= f.label :release_date %>
-    <%= f.date_field :release_date %>
-  </div>
-  <div>
-    <%= f.submit %>
+  <div class="col s12">
+    <div class="row">
+      <div class="input-field col l10 offset-l1 s12">
+        <%= f.text_field :title, class: get_classes_for(@movie, :title), **get_tooltip_for(@movie, :title)%>
+        <%= f.label :title %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col l4 offset-l1 s12">
+        <%= f.text_field :director, class: get_classes_for(@movie, :director), **get_tooltip_for(@movie, :director)%>
+        <%= f.label :director %>
+      </div>
+      <div class="input-field col l3 s6">
+        <%= f.number_field :runtime_in_minutes, class: get_classes_for(@movie, :runtime_in_minutes), **get_tooltip_for(@movie, :runtime_in_minutes)%>
+        <%= f.label :runtime_in_minutes %>
+      </div>
+      <div class="input-field col l3 s6">
+        <%= f.text_field :poster_image_url, class: get_classes_for(@movie, :poster_image_url), **get_tooltip_for(@movie, :poster_image_url)%>
+        <%= f.label :poster_image_url %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col l10 offset-l1 s12">
+        <%= f.text_area :description, class: get_classes_for(@movie, :description), **get_tooltip_for(@movie, :description)%>
+        <%= f.label :description %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col l4 offset-l1 s6">
+        <%= f.label :release_date %>
+        <%= f.text_field :release_date, class: get_classes_for(@movie, :release_date), **get_tooltip_for(@movie, :release_date)%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col l3 offset-l1 s4 offset-s4">
+        <button class="btn waves-effect waves-light" type="submit" name="action">
+          <%= f.object.new_record? ? "Create" : "Update" %> Movie
+        </button>
+      </div>
+    </div>
   </div>
 <% end %>
