@@ -2,6 +2,7 @@ module MoviesHelper
   def get_classes_for(movie, field)
     out = "validate"
     return out unless movie
+    return out if movie.new_record?
     if movie.errors[field].count > 0
       out += " invalid tooltipped"
     else
